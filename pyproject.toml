@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "onnx-card"
 version = "0.1.0"
-description = "Terminal operator histogram for ONNX models."
+description = "Fast, accurate, terminal-first ONNX model cards — describe what's inside an ONNX model without running it."
 readme = "README.md"
 requires-python = ">=3.9"
 license = { file = "LICENSE" }

@@ -1,11 +1,11 @@
 # onnx-card
 
-A minimal terminal tool to display **operator counts** for ONNX models.
+Provide a fast, accurate, terminal-first “ONNX card” describing what is inside an ONNX model — without running it.
 
-`onnx-card` loads an ONNX model and prints a clean table of operator types
-(`node.op_type`) and how often they occur in the graph.
-
-![overview](assets/overview.jpeg)
+`onnx-card` loads an ONNX model and prints a clean, colorized card showing:
+- Model name and metadata (opset, IR version)
+- Entrypoint inputs and outputs (with shapes and dtypes)
+- Operator counts and statistics
 
 Built for:
 - quick inspection
@@ -50,6 +50,14 @@ Sort alphabetically instead of by count:
 onnx-card model.onnx --sort name
 ```
 
+Select which tables to display:
+
+```bash
+onnx-card model.onnx --show io          # Only inputs/outputs
+onnx-card model.onnx --show operators   # Only operator counts
+onnx-card model.onnx --show all         # Everything (default)
+```
+
 JSON output (for scripts / CI):
 
 ```bash
@@ -61,44 +69,6 @@ You can also run it as a module:
 ```bash
 python -m onnx_card model.onnx
 ```
-
----
-
-## Example output
-
-```
-┏━━━━━━━━━━━┳━━━━━━━┓
-┃ Operator  ┃ Count ┃
-┡━━━━━━━━━━━╇━━━━━━━┩
-│ Conv      │    53 │
-│ Relu      │    49 │
-│ Add       │    24 │
-│ BatchNorm │    16 │
-│ Gemm      │     1 │
-└───────────┴───────┘
-
-Unique operators: 5 • Total nodes: 143
-```
-
----
-
-## What this tool does
-
-* Counts operators in the **top-level ONNX graph**
-* Uses `node.op_type` exactly as defined by ONNX
-* Produces terminal-friendly output using **Rich**
-
----
-
-## What this tool does *not* do (by design)
-
-* No model execution
-* No shape inference
-* No MACs / FLOPs
-* No visualization
-* No recursion into subgraphs (yet)
-
-The goal is to stay **small, fast, and predictable**.
 
 ---
 

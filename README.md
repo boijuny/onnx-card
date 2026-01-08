@@ -12,7 +12,9 @@ A fast, terminal-first **ONNX model card** that answers:
 `onnx-card` provides a concise, human-readable summary of an ONNX model
 directly in the terminal — without executing the model.
 
-![onnx-card example](docs/onnx-card-example.png)
+<div align="center">
+  <img src="docs/onnx-card-example.png" alt="onnx-card example" width="400">
+</div>
 
 
 ---

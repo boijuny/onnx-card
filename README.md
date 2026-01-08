@@ -65,13 +65,6 @@ You can also run it as a module:
 ```bash
 python -m onnx_card model.onnx
 ```
-
----
-
-## Example
-
-![onnx-card example](docs/onnx-card-example.png)
-
 ---
 
 ## Why onnx-card?
